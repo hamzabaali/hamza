@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Sonar-Test" default="Test" basedir="." xmlns:antcontrib="antlib:net.sf.antcontrib">
+
+
+<!-- Define the SonarQube global properties (the most usual way is to pass these properties via the command line) -->
+<property name="sonar.host.url" value="http://srvic3:9000/sonar/" />
+ 
+ 
+<!-- Define the SonarQube project properties -->
+<property name="sonar.projectKey" value="org.exemple.sonar:example2-PHP-ant" />
+<property name="sonar.projectName" value="Projet" />
+<property name="sonar.projectVersion" value="1.0" />
+<property name="sonar.sources" value="src" />
+<property name="sonar.java.binaries" value="build" />
+<property name="sonar.java.libraries" value="lib/*.jar" />
+<property name="Dsonar.scm.provider" value="svn" />
+<!-- /build/logs/junit.xml -->
+
+
+<target name="sonar">
+   <!-- <taskdef uri="antlib:net.sf.antcontrib" resource="/home/lib/net/sf/antcontrib/antlib.xml"  classpath="/home/lib/ant-contrib.jar"/>      -->
+  <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
+        <!-- Update the following line, or put the "sonarqube-ant-task-*.jar" file in your "$HOME/.ant/lib" folder -->
+        <classpath path="D:\PIC\outils\sonarqube-ant-task-2.4.jar" />
+  </taskdef>
+    <!-- Execute the SonarQube analysis -->
+  <sonar:sonar xmlns:sonar="antlib:org.sonar.ant">
+  </sonar:sonar>
+</target>
+
+
+ 
+</project>
